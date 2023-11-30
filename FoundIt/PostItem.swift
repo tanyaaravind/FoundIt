@@ -23,6 +23,7 @@ struct PostItem: View {
             HStack {
                 image
                     .resizable()
+                    .scaledToFit()
                 Spacer()
             }
         }
