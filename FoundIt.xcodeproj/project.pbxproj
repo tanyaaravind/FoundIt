@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0498D3EA2B184894003DD7C9 /* GoogleUserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498D3E92B184894003DD7C9 /* GoogleUserAuth.swift */; };
+		6D64043C6B2B94187876B8CE /* Pods_FoundIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6FCEC419248BB5B26834B99 /* Pods_FoundIt.framework */; };
 		CEC157D52B17C61700B23D14 /* FoundItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC157D42B17C61700B23D14 /* FoundItApp.swift */; };
 		CEC157D72B17C61700B23D14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC157D62B17C61700B23D14 /* ContentView.swift */; };
 		CEC157D92B17C61800B23D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC157D82B17C61800B23D14 /* Assets.xcassets */; };
@@ -14,11 +16,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0498D3E82B1845CA003DD7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0498D3E92B184894003DD7C9 /* GoogleUserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleUserAuth.swift; sourceTree = "<group>"; };
+		B6FCEC419248BB5B26834B99 /* Pods_FoundIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoundIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC157D12B17C61700B23D14 /* FoundIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoundIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC157D42B17C61700B23D14 /* FoundItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundItApp.swift; sourceTree = "<group>"; };
 		CEC157D62B17C61700B23D14 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CEC157D82B17C61800B23D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEC157DB2B17C61800B23D14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EC361CD8358CCB5DBEE98856 /* Pods-FoundIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundIt.debug.xcconfig"; path = "Target Support Files/Pods-FoundIt/Pods-FoundIt.debug.xcconfig"; sourceTree = "<group>"; };
+		F572E680E34571CC8F7DFC94 /* Pods-FoundIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundIt.release.xcconfig"; path = "Target Support Files/Pods-FoundIt/Pods-FoundIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D64043C6B2B94187876B8CE /* Pods_FoundIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00DCC4FD76645F7FFE57061C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EC361CD8358CCB5DBEE98856 /* Pods-FoundIt.debug.xcconfig */,
+				F572E680E34571CC8F7DFC94 /* Pods-FoundIt.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		45D84D355D57E930737D66DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6FCEC419248BB5B26834B99 /* Pods_FoundIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEC157C82B17C61700B23D14 = {
 			isa = PBXGroup;
 			children = (
 				CEC157D32B17C61700B23D14 /* FoundIt */,
 				CEC157D22B17C61700B23D14 /* Products */,
+				00DCC4FD76645F7FFE57061C /* Pods */,
+				45D84D355D57E930737D66DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,10 +78,12 @@
 		CEC157D32B17C61700B23D14 /* FoundIt */ = {
 			isa = PBXGroup;
 			children = (
+				0498D3E82B1845CA003DD7C9 /* Info.plist */,
 				CEC157D42B17C61700B23D14 /* FoundItApp.swift */,
 				CEC157D62B17C61700B23D14 /* ContentView.swift */,
 				CEC157D82B17C61800B23D14 /* Assets.xcassets */,
 				CEC157DA2B17C61800B23D14 /* Preview Content */,
+				0498D3E92B184894003DD7C9 /* GoogleUserAuth.swift */,
 			);
 			path = FoundIt;
 			sourceTree = "<group>";
@@ -74,9 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEC157DF2B17C61800B23D14 /* Build configuration list for PBXNativeTarget "FoundIt" */;
 			buildPhases = (
+				01983FA50607EFA12E9CE167 /* [CP] Check Pods Manifest.lock */,
 				CEC157CD2B17C61700B23D14 /* Sources */,
 				CEC157CE2B17C61700B23D14 /* Frameworks */,
 				CEC157CF2B17C61700B23D14 /* Resources */,
+				9A08A2B83AA9FA3E1FFA88AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +163,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01983FA50607EFA12E9CE167 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FoundIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A08A2B83AA9FA3E1FFA88AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoundIt/Pods-FoundIt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoundIt/Pods-FoundIt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoundIt/Pods-FoundIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEC157CD2B17C61700B23D14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +212,7 @@
 			files = (
 				CEC157D72B17C61700B23D14 /* ContentView.swift in Sources */,
 				CEC157D52B17C61700B23D14 /* FoundItApp.swift in Sources */,
+				0498D3EA2B184894003DD7C9 /* GoogleUserAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +256,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -245,7 +319,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -266,6 +340,7 @@
 		};
 		CEC157E02B17C61800B23D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC361CD8358CCB5DBEE98856 /* Pods-FoundIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -274,6 +349,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FoundIt/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoundIt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -294,6 +370,7 @@
 		};
 		CEC157E12B17C61800B23D14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F572E680E34571CC8F7DFC94 /* Pods-FoundIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +379,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FoundIt/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoundIt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

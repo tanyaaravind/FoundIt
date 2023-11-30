@@ -6,14 +6,23 @@
 //
 
 import SwiftUI
+import GoogleSignInSwift
+import GoogleSignIn
 
 struct ContentView: View {
+    
+    @EnvironmentObject var user: GoogleUserAuth
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Button {
+                user.signIn()
+            } label: {
+                Text(user.netId)
+            }
         }
         .padding()
     }
