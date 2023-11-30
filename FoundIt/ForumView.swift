@@ -11,7 +11,7 @@ struct ForumView: View {
     @State private var searchBar: String = ""
     
     enum ButtonType {
-           case Lost, Found
+           case Lost, Found, Latest
        }
     
     @State private var selectedButton: ButtonType = .Lost
@@ -46,39 +46,60 @@ struct ForumView: View {
                 .background(Color.lightBlue)
                 .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
                 .ignoresSafeArea()
+                .padding(.bottom, -65)
                 
                 VStack {
                     HStack {
-                        Spacer()
-                        Button("Lost") {
+                        Button {
                             self.selectedButton = .Lost
+                        } label: {
+                            Text("Lost Items")
+                                .font(.footnote)
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .foregroundStyle(Color.primaryText)
                         }
                         .padding()
-                        .frame(width: 90)
-                        .background(selectedButton == .Lost ? Color.blue : Color.gray)
-                        .foregroundColor(.white)
+                        .background(selectedButton == .Lost ? Color.selectedGray : Color.lightBlue)
                         .cornerRadius(10)
-                        Spacer()
                         
                         Spacer()
-                        Button("Found") {
+                        
+                        Button {
                             self.selectedButton = .Found
+                        } label: {
+                            Text("Found Items")
+                                .font(.footnote)
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .foregroundStyle(Color.primaryText)
                         }
                         .padding()
-                        .frame(width: 90)
-                        .background(selectedButton == .Found ? Color.blue : Color.gray)
-                        .foregroundColor(.white)
+                        .background(selectedButton == .Found ? Color.selectedGray : Color.lightBlue)
                         .cornerRadius(10)
+                        
                         Spacer()
+                        
+                        Button {
+                            self.selectedButton = .Latest
+                        } label: {
+                            Text("Latest Posts")
+                                .font(.footnote)
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .foregroundStyle(Color.primaryText)
+                        }
+                        .padding()
+                        .background(selectedButton == .Latest ? Color.selectedGray : Color.lightBlue)
+                        .cornerRadius(10)
                     }
                     .padding()
-                    
                     // Display data based on the selected button
                     if selectedButton == .Lost {
                         Text("Lost")
                             .padding()
-                    } else {
+                    } else if selectedButton == .Found {
                         Text("Found")
+                            .padding()
+                    } else {
+                        Text("Latest")
                             .padding()
                     }
                     
