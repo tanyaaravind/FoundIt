@@ -21,16 +21,31 @@ struct ForumView: View {
         NavigationView {
             VStack {
                 HStack {
-                    Image(systemName: "magnifyingglass")
-                    TextField("Search", text: $searchBar)
-                        .padding(.vertical, 10)
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        TextField("Search", text: $searchBar)
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    .padding(.top, 15)
+                    .padding(.trailing, 10)
+                    .padding(.leading, 15)
+                    .padding(.bottom, 25)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "bell")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .padding(.trailing, 15)
+                        .padding(.bottom, 10)
                 }
-                .padding()
-                .background(Color.gray)
-                .cornerRadius(36)
-                .padding(.top, 15)
-                .padding(.trailing, 10)
-                .padding(.leading, 10)
+                .padding(.top, 50)
+                .background(Color.lightBlue)
+                .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
+                .ignoresSafeArea()
                 
                 VStack {
                     HStack {
@@ -69,7 +84,7 @@ struct ForumView: View {
                     
                     Spacer()
                 }
-                .navigationTitle("Recover")
+//                .navigationTitle("Recover")
                 
             }
         }
@@ -78,4 +93,21 @@ struct ForumView: View {
 
 #Preview {
     ForumView()
+}
+
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+
+struct RoundedCorner: Shape {
+
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
 }
