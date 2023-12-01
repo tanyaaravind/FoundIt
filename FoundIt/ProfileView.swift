@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var searchBar: String = ""
-    @EnvironmentObject var user: GoogleUserAuth
     
     enum ProfileButtonType {
         case Current, Deleted
@@ -18,11 +17,11 @@ struct ProfileView: View {
     @State private var selectedButton: ProfileButtonType = .Current
 
     private func handleAuthentication() {
-        user.checkLogin()
+        GoogleUserAuth.user.checkLogin()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if !user.isLoggedIn {
+            if !GoogleUserAuth.user.isLoggedIn {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    user.signIn()
+                    GoogleUserAuth.user.signIn()
                 }
             }
         }
@@ -47,7 +46,7 @@ struct ProfileView: View {
                     Spacer()
                     
                     Button {
-                        user.signOut()
+                        GoogleUserAuth.user.signOut()
                     } label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                             .resizable()
@@ -102,9 +101,10 @@ struct ProfileView: View {
                         VStack {
                             
                             HStack {
-                                AsyncImage(url: URL(string: user.imageUrl))
+                                AsyncImage(url: URL(string: GoogleUserAuth.user.imageUrl))
+                                    .frame(width: 48, height: 48)
                                     .cornerRadius(24)
-                                Text("\(user.name) (\(user.netId))")
+                                Text("\(GoogleUserAuth.user.name) (\(GoogleUserAuth.user.netId))")
                             }
                             
                             // Display data based on the selected button
@@ -116,16 +116,17 @@ struct ProfileView: View {
                                     .padding()
                             }
                         }
-                        .opacity(user.isLoggedIn ? 1 : 0)
+                        .opacity(GoogleUserAuth.user.isLoggedIn ? 1 : 0)
                         Button {
-                            user.signIn()
+                            print(GoogleUserAuth.user.isLoggedIn)
+                            GoogleUserAuth.user.signIn()
                         } label: {
                             Text("Sign In to FoundIt")
                                 .padding()
                                 .background(Color.lightBlue)
                                 .cornerRadius(12)
                         }
-                        .opacity(user.nonCornellLoggedIn ? 0 : 1)
+                        .opacity(GoogleUserAuth.user.nonCornellLoggedIn ? 0 : 1)
                     }
                     
                     Spacer()

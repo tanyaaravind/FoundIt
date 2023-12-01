@@ -1,5 +1,5 @@
 //
-//  GoogleUserAuth.swift
+//  swift
 //  FoundIt
 //
 //  Created by Joshua Ochalek on 11/29/23.
@@ -10,11 +10,14 @@ import GoogleSignIn
 
 class GoogleUserAuth: ObservableObject {
     
-    @Published var netId: String = "n/a"
-    @Published var isLoggedIn: Bool = false
-    @Published var name: String = "n/a"
-    @Published var nonCornellLoggedIn: Bool = false
-    @Published var imageUrl: String = "n/a"
+    static let user: GoogleUserAuth = GoogleUserAuth()
+    
+    var netId: String = "n/a"
+    var isLoggedIn: Bool = false
+    var name: String = "n/a"
+    var nonCornellLoggedIn: Bool = false
+    var imageUrl: String = "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+    var userId: Int = -1
     
     func updateFields() {
         if GIDSignIn.sharedInstance.currentUser != nil {
@@ -25,19 +28,27 @@ class GoogleUserAuth: ObservableObject {
                 name = profile.name
                 isLoggedIn = true
                 nonCornellLoggedIn = true
+                print("Test22")
+                NetworkManager.shared.addOrUpdateUser() { newUser in
+                    self.userId = newUser.id
+                    print("test")
+                    print(self.userId)
+                }
             } else {
                 netId = "Invalid Email"
-                imageUrl = "n/a"
+                imageUrl = "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
                 name = "n/a"
                 isLoggedIn = false
                 nonCornellLoggedIn = true
+                userId = -1
             }
         } else {
             netId = "Invalid Email"
-            imageUrl = "n/a"
+            imageUrl = "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
             name = "n/a"
             isLoggedIn = false
             nonCornellLoggedIn = false
+            userId = -1
         }
     }
     
@@ -55,7 +66,7 @@ class GoogleUserAuth: ObservableObject {
         }
     }
     
-    func signOut(){
+    func signOut() {
         GIDSignIn.sharedInstance.signOut()
         self.checkLogin()
     }

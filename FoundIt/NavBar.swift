@@ -10,7 +10,6 @@ import SwiftUI
 struct NavBar: View {
     
     @State private var tab = 3
-    @EnvironmentObject var user: GoogleUserAuth
     
     var body: some View {
         ZStack {
@@ -42,7 +41,7 @@ struct NavBar: View {
             }
             VStack {
                 Spacer()
-                if !user.isLoggedIn {
+                if !GoogleUserAuth.user.isLoggedIn {
                     Rectangle()
                         .fill(Color.white.opacity(0.001))
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)

@@ -98,9 +98,9 @@ struct ForumView: View {
                         ScrollView {
                             VStack() {
                                 
-                                ForEach(lostPosts) { lostPost in
-                                    PostItem(name: lostPost.name, netID: lostPost.netID, description: lostPost.description, image: lostPost.image)
-                                }
+//                                ForEach(lostPosts) { lostPost in
+//                                    PostItem(name: lostPost.name, netID: lostPost.netID, description: lostPost.description, image: lostPost.image)
+//                                }
                             }
                             .frame(maxWidth: .infinity)
                         }
@@ -111,9 +111,9 @@ struct ForumView: View {
                         ScrollView {
                             VStack() {
                                 
-                                ForEach(foundPosts) { foundPost in
-                                    PostItem(name: foundPost.name, netID: foundPost.netID, description: foundPost.description, image: foundPost.image)
-                                }
+//                                ForEach(foundPosts) { foundPost in
+//                                    PostItem(name: foundPost.name, netID: foundPost.netID, description: foundPost.description, image: foundPost.image)
+//                                }
                             }
                             .frame(maxWidth: .infinity)
                         }
