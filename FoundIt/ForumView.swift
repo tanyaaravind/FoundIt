@@ -95,9 +95,29 @@ struct ForumView: View {
                     if selectedButton == .Lost {
                         Text("Lost")
                             .padding()
+                        ScrollView {
+                            VStack() {
+                                
+                                ForEach(lostPosts) { lostPost in
+                                    PostItem(name: lostPost.name, netID: lostPost.netID, description: lostPost.description, image: lostPost.image)
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                        
                     } else if selectedButton == .Found {
                         Text("Found")
                             .padding()
+                        ScrollView {
+                            VStack() {
+                                
+                                ForEach(foundPosts) { foundPost in
+                                    PostItem(name: foundPost.name, netID: foundPost.netID, description: foundPost.description, image: foundPost.image)
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                        
                     } else {
                         Text("Latest")
                             .padding()

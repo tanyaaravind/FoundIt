@@ -14,23 +14,32 @@ struct PostItem: View {
     var image: Image
     
     var body: some View {
-        VStack{
-            HStack{
-                Text(name)
-                Text(netID)
-            }
             
-            HStack {
-                image
-                    .resizable()
-                Spacer()
-            }
+        HStack {
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 200, alignment: .leading)
+                .clipped()
+            
+            Spacer()
+            
+                VStack (alignment: .leading, spacing: 5) {
+                    HStack {
+                        Text(name)
+                        Text(netID)
+                    }
+                    .padding(.bottom, 50)
+                    Text(description)
+                }
+                .frame(width: 150, height: 200)
+                //.background(Color.blue)
+                .padding(.trailing, 50)
+                
         }
-        .frame(width: 350, height: 100)
+        .frame(width: 350, height: 175)
         .background(Color(.systemGray5))
         .cornerRadius(15.0)
-        .padding(50)
-        
     }
     
     
@@ -38,5 +47,5 @@ struct PostItem: View {
 
 
 #Preview {
-    PostItem(name: "Tanya", netID: "ta374", description: "yellow beanie", image: Image("yellowhat"))
+    PostItem(name: "Tanya", netID: "ta374", description: "yellow beanie found at RPCC", image: Image("yellowhat"))
 }

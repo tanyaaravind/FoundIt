@@ -18,7 +18,7 @@ struct NavBar: View {
                 }
             
             // Schedule Tab
-            Text("Post")
+            PostView()
                 .tabItem {
                     Image(systemName: "plus.circle.fill")
                     Text("Post")
