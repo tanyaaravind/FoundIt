@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043680012B198D6800556702 /* GoogleUserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043680002B198D6800556702 /* GoogleUserAuth.swift */; };
+		043680062B198EBC00556702 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043680052B198EBC00556702 /* ProfileView.swift */; };
+		043680082B19952400556702 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043680072B19952400556702 /* CameraView.swift */; };
+		1ABA50C5B90694516BCA9348 /* Pods_FoundIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8768C883D22FCED919FFF39 /* Pods_FoundIt.framework */; };
 		CE5A368F2B18414D006CD0DF /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A368E2B18414D006CD0DF /* ForumView.swift */; };
 		CE5A36912B185606006CD0DF /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A36902B185606006CD0DF /* NavBar.swift */; };
 		CE5A36932B185A41006CD0DF /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A36922B185A41006CD0DF /* PostStruct.swift */; };
@@ -20,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043680002B198D6800556702 /* GoogleUserAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleUserAuth.swift; sourceTree = "<group>"; };
+		043680022B198DAE00556702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043680052B198EBC00556702 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		043680072B19952400556702 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		6CCB11396200AFB984EB4224 /* Pods-FoundIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundIt.release.xcconfig"; path = "Target Support Files/Pods-FoundIt/Pods-FoundIt.release.xcconfig"; sourceTree = "<group>"; };
+		9F1CC1941076EBB22105C7DA /* Pods-FoundIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundIt.debug.xcconfig"; path = "Target Support Files/Pods-FoundIt/Pods-FoundIt.debug.xcconfig"; sourceTree = "<group>"; };
 		CE5A368E2B18414D006CD0DF /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
 		CE5A36902B185606006CD0DF /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		CE5A36922B185A41006CD0DF /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
@@ -31,6 +41,7 @@
 		CEC157DB2B17C61800B23D14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CEFD31D92B193C37003C7611 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		CEFD31DB2B194A80003C7611 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		D8768C883D22FCED919FFF39 /* Pods_FoundIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoundIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ABA50C5B90694516BCA9348 /* Pods_FoundIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29B5FF476323114555FBFE80 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F1CC1941076EBB22105C7DA /* Pods-FoundIt.debug.xcconfig */,
+				6CCB11396200AFB984EB4224 /* Pods-FoundIt.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CEC157C82B17C61700B23D14 = {
 			isa = PBXGroup;
 			children = (
 				CEC157D32B17C61700B23D14 /* FoundIt */,
 				CEC157D22B17C61700B23D14 /* Products */,
+				29B5FF476323114555FBFE80 /* Pods */,
+				FB7DBE39C6B2701A5526D084 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +86,7 @@
 		CEC157D32B17C61700B23D14 /* FoundIt */ = {
 			isa = PBXGroup;
 			children = (
+				043680022B198DAE00556702 /* Info.plist */,
 				CEC157D42B17C61700B23D14 /* FoundItApp.swift */,
 				CEC157D62B17C61700B23D14 /* ContentView.swift */,
 				CE5A368E2B18414D006CD0DF /* ForumView.swift */,
@@ -71,8 +95,11 @@
 				CE5A36902B185606006CD0DF /* NavBar.swift */,
 				CE5A36942B185FA4006CD0DF /* PostItem.swift */,
 				CE5A36922B185A41006CD0DF /* PostStruct.swift */,
+				043680002B198D6800556702 /* GoogleUserAuth.swift */,
+				043680052B198EBC00556702 /* ProfileView.swift */,
 				CEC157D82B17C61800B23D14 /* Assets.xcassets */,
 				CEC157DA2B17C61800B23D14 /* Preview Content */,
+				043680072B19952400556702 /* CameraView.swift */,
 			);
 			path = FoundIt;
 			sourceTree = "<group>";
@@ -85,6 +112,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		FB7DBE39C6B2701A5526D084 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8768C883D22FCED919FFF39 /* Pods_FoundIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,9 +127,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEC157DF2B17C61800B23D14 /* Build configuration list for PBXNativeTarget "FoundIt" */;
 			buildPhases = (
+				E2F83A874D4E41D70E053BEB /* [CP] Check Pods Manifest.lock */,
 				CEC157CD2B17C61700B23D14 /* Sources */,
 				CEC157CE2B17C61700B23D14 /* Frameworks */,
 				CEC157CF2B17C61700B23D14 /* Resources */,
+				78BB5036977C5346734D95ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +187,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		78BB5036977C5346734D95ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoundIt/Pods-FoundIt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoundIt/Pods-FoundIt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoundIt/Pods-FoundIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2F83A874D4E41D70E053BEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FoundIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEC157CD2B17C61700B23D14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -160,8 +239,11 @@
 				CE5A36952B185FA4006CD0DF /* PostItem.swift in Sources */,
 				CEC157D72B17C61700B23D14 /* ContentView.swift in Sources */,
 				CE5A36912B185606006CD0DF /* NavBar.swift in Sources */,
+				043680012B198D6800556702 /* GoogleUserAuth.swift in Sources */,
 				CE5A368F2B18414D006CD0DF /* ForumView.swift in Sources */,
+				043680082B19952400556702 /* CameraView.swift in Sources */,
 				CEC157D52B17C61700B23D14 /* FoundItApp.swift in Sources */,
+				043680062B198EBC00556702 /* ProfileView.swift in Sources */,
 				CE5A36932B185A41006CD0DF /* PostStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +288,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -269,7 +351,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -290,19 +372,23 @@
 		};
 		CEC157E02B17C61800B23D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F1CC1941076EBB22105C7DA /* Pods-FoundIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoundIt/Preview Content\"";
+				DEVELOPMENT_TEAM = 98JYHMUJJY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoundIt/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow camera access to take photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,19 +404,23 @@
 		};
 		CEC157E12B17C61800B23D14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CCB11396200AFB984EB4224 /* Pods-FoundIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoundIt/Preview Content\"";
+				DEVELOPMENT_TEAM = 98JYHMUJJY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoundIt/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow camera access to take photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
