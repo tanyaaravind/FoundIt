@@ -11,7 +11,7 @@ struct ForumView: View {
     @State private var searchBar: String = ""
     
     enum ButtonType {
-           case Lost, Found
+           case Lost, Found, Latest
        }
     
     @State private var selectedButton: ButtonType = .Lost
@@ -21,6 +21,18 @@ struct ForumView: View {
         NavigationView {
             VStack {
                 HStack {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        TextField("Search", text: $searchBar)
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    .padding(.top, 15)
+                    .padding(.trailing, 10)
+                    .padding(.leading, 15)
+                    .padding(.bottom, 25)
+                    
                     Spacer()
                     
                     Image(systemName: "bell")
@@ -30,50 +42,89 @@ struct ForumView: View {
                         .padding(.trailing, 15)
                         .padding(.bottom, 10)
                 }
-                .padding(.top, 200)
+                .padding(.top, 50)
                 .background(Color.lightBlue)
                 .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
                 .ignoresSafeArea()
+                .padding(.bottom, -65)
                 
                 VStack {
                     HStack {
-                        Spacer()
-                        Button("Lost") {
+                        Button {
                             self.selectedButton = .Lost
+                        } label: {
+                            Text("Lost Items")
+                                .font(.footnote)
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .foregroundStyle(Color.primaryText)
                         }
                         .padding()
-                        .frame(width: 90)
-                        .background(selectedButton == .Lost ? Color.blue : Color.gray)
-                        .foregroundColor(.white)
+                        .background(selectedButton == .Lost ? Color.selectedGray : Color.lightBlue)
                         .cornerRadius(10)
-                        Spacer()
                         
                         Spacer()
-                        Button("Found") {
+                        
+                        Button {
                             self.selectedButton = .Found
+                        } label: {
+                            Text("Found Items")
+                                .font(.footnote)
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .foregroundStyle(Color.primaryText)
                         }
                         .padding()
-                        .frame(width: 90)
-                        .background(selectedButton == .Found ? Color.blue : Color.gray)
-                        .foregroundColor(.white)
+                        .background(selectedButton == .Found ? Color.selectedGray : Color.lightBlue)
                         .cornerRadius(10)
+                        
                         Spacer()
+                        
+                        Button {
+                            self.selectedButton = .Latest
+                        } label: {
+                            Text("Latest Posts")
+                                .font(.footnote)
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .foregroundStyle(Color.primaryText)
+                        }
+                        .padding()
+                        .background(selectedButton == .Latest ? Color.selectedGray : Color.lightBlue)
+                        .cornerRadius(10)
                     }
                     .padding()
-                    
                     // Display data based on the selected button
                     if selectedButton == .Lost {
                         Text("Lost")
                             .padding()
-                    } else {
+                        ScrollView {
+                            VStack() {
+                                
+                                ForEach(lostPosts) { lostPost in
+                                    PostItem(name: lostPost.name, netID: lostPost.netID, description: lostPost.description, image: lostPost.image)
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                        
+                    } else if selectedButton == .Found {
                         Text("Found")
+                            .padding()
+                        ScrollView {
+                            VStack() {
+                                
+                                ForEach(foundPosts) { foundPost in
+                                    PostItem(name: foundPost.name, netID: foundPost.netID, description: foundPost.description, image: foundPost.image)
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                        
+                    } else {
+                        Text("Latest")
                             .padding()
                     }
                     
                     Spacer()
                 }
-                .navigationTitle("Recover")
-                .searchable(text: $searchBar, placement: .navigationBarDrawer(displayMode: .always))
                 
             }
         }
