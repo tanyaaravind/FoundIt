@@ -32,3 +32,12 @@ var foundPosts: [Post] = [
     Post(name: "Pablo", netID: "jcoep", description: "little hat thing found at Goldwin Smith", image: Image("greenhat")),
     Post(name: "Skye", netID: "ry8u5", description: "yellow hat left at Baker Hall 200", image: Image("greenhat"))
     ]
+
+var myPosts: [Post] = [
+    Post(name: "Tanya", netID: "ta374", description: "yellow beanie found in RPCC", image: Image("greenhat")),
+    Post(name: "Tanya", netID: "ta374", description: "beanie in yellow", image: Image("greenhat")),
+    Post(name: "Tanya", netID: "ta374", description: "knitted hat", image: Image("greenhat")),
+    Post(name: "Tanya", netID: "ta374", description: "hat", image: Image("greenhat")),
+    Post(name: "Tanya", netID: "ta374", description: "little hat thing found at Goldwin Smith", image: Image("greenhat")),
+    Post(name: "Tanya", netID: "ta374", description: "yellow hat left at Baker Hall 200", image: Image("greenhat"))
+    ]

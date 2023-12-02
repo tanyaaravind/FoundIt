@@ -13,8 +13,10 @@ struct PostView: View {
     @State private var showingPhotoOption: Bool = false
     @State private var photoItem: PhotosPickerItem?
     @State private var showingPhotoGallery: Bool = false
-    @State private var image = UIImage(named: "yellowhat")
+    @State private var image = UIImage(named: "emptyImage")
     @State private var showingCamera: Bool = false
+    @Binding var tabIndex: Int
+    
     
     // For backend
     func toBase64 (image: UIImage) -> String {
@@ -25,16 +27,26 @@ struct PostView: View {
         VStack {
             HStack {
                 Button {
+                    image = UIImage(named: "emptyImage")
+                    tabIndex = 1
+                    newPost = ""
+                    
                     print("Cancel")
                 } label: {
                     Text("Cancel")
                 }
                 
-                Spacer()
+                //Spacer()
                 Text("New Post")
                     .fontWeight(.semibold)
+                    .font(.title)
+                    .frame(width: 150, height: 50)
+                    .background(Color.cyan)
+                    .cornerRadius(12)
+                    .padding(.leading, 35)
+                    .padding(.trailing, 50)
                 
-                Spacer()
+                //Spacer()
                 
                 Button {
                     print("Post")
@@ -43,15 +55,23 @@ struct PostView: View {
                 }
                 
             }
-            .padding(.horizontal)
+            .padding(.top, 80)
+            .frame(maxWidth: .infinity)
+            .frame(height: 160)
+            .background(Color.lightBlue)
+            .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
+            .ignoresSafeArea()
+            .padding(.bottom, -55)
             
-            HStack (spacing: 8) {
+            VStack (spacing: 8) {
                 Button {
                     showingPhotoOption.toggle()
                 } label: {
                     Image(uiImage: image!)
                         .resizable()
-                        .frame(width: 100, height: 100)
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(12)
+                        .clipped()
                 }
                 .confirmationDialog("Select a method", isPresented: $showingPhotoOption, titleVisibility: .visible) {
                     Button("New Photo") {
@@ -65,6 +85,8 @@ struct PostView: View {
                 }
                 .photosPicker(isPresented: $showingPhotoGallery, selection: $photoItem)
                 TextField("Report a Lost or Found Object", text: $newPost, axis: .vertical)
+                    .lineLimit(4)
+                    .frame(width: 300)
             }
             .padding()
             
@@ -91,5 +113,6 @@ struct PostView: View {
 
 
 #Preview {
-    PostView()
+    PostView(tabIndex: .constant(0))
 }
+

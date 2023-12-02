@@ -11,7 +11,7 @@ struct ForumView: View {
     @State private var searchBar: String = ""
     
     enum ButtonType {
-           case Lost, Found, Latest
+           case Lost, Found
        }
     
     @State private var selectedButton: ButtonType = .Lost
@@ -50,6 +50,8 @@ struct ForumView: View {
                 
                 VStack {
                     HStack {
+                        Spacer()
+                        
                         Button {
                             self.selectedButton = .Lost
                         } label: {
@@ -78,23 +80,10 @@ struct ForumView: View {
                         
                         Spacer()
                         
-                        Button {
-                            self.selectedButton = .Latest
-                        } label: {
-                            Text("Latest Posts")
-                                .font(.footnote)
-                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                .foregroundStyle(Color.primaryText)
-                        }
-                        .padding()
-                        .background(selectedButton == .Latest ? Color.selectedGray : Color.lightBlue)
-                        .cornerRadius(10)
                     }
                     .padding()
                     // Display data based on the selected button
                     if selectedButton == .Lost {
-                        Text("Lost")
-                            .padding()
                         ScrollView {
                             VStack() {
                                 
@@ -106,8 +95,7 @@ struct ForumView: View {
                         }
                         
                     } else if selectedButton == .Found {
-                        Text("Found")
-                            .padding()
+
                         ScrollView {
                             VStack() {
                                 
@@ -118,12 +106,10 @@ struct ForumView: View {
                             .frame(maxWidth: .infinity)
                         }
                         
-                    } else {
-                        Text("Latest")
-                            .padding()
                     }
                     
                     Spacer()
+                       
                 }
                 
             }

@@ -10,12 +10,6 @@ import SwiftUI
 struct ProfileView: View {
     @State private var searchBar: String = ""
     @EnvironmentObject var user: GoogleUserAuth
-    
-    enum ProfileButtonType {
-        case Current, Deleted
-       }
-    
-    @State private var selectedButton: ProfileButtonType = .Current
 
     private func handleAuthentication() {
         user.checkLogin()
@@ -65,38 +59,6 @@ struct ProfileView: View {
                 .padding(.bottom, -65)
                 
                 VStack {
-                    HStack {
-                        Spacer()
-                        
-                        Button {
-                            self.selectedButton = .Current
-                        } label: {
-                            Text("Your Posts")
-                                .font(.footnote)
-                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                .foregroundStyle(Color.primaryText)
-                        }
-                        .padding()
-                        .background(selectedButton == .Current ? Color.selectedGray : Color.lightBlue)
-                        .cornerRadius(10)
-                        
-                        Spacer()
-                        
-                        Button {
-                            self.selectedButton = .Deleted
-                        } label: {
-                            Text("Deleted Posts")
-                                .font(.footnote)
-                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                .foregroundStyle(Color.primaryText)
-                        }
-                        .padding()
-                        .background(selectedButton == .Deleted ? Color.selectedGray : Color.lightBlue)
-                        .cornerRadius(10)
-                        
-                        Spacer()
-                    }
-                    .padding()
                     
                     ZStack {
                         VStack {
@@ -106,15 +68,8 @@ struct ProfileView: View {
                                     .cornerRadius(24)
                                 Text("\(user.name) (\(user.netId))")
                             }
+                            .padding(.top, 20)
                             
-                            // Display data based on the selected button
-                            if selectedButton == .Current {
-                                Text("Current")
-                                    .padding()
-                            } else {
-                                Text("Deleted")
-                                    .padding()
-                            }
                         }
                         .opacity(user.isLoggedIn ? 1 : 0)
                         Button {
@@ -128,9 +83,29 @@ struct ProfileView: View {
                         .opacity(user.nonCornellLoggedIn ? 0 : 1)
                     }
                     
-                    Spacer()
+                    
+                    VStack {
+                        
+                        HStack {
+                            
+                            Spacer()
+                        
+                            ScrollView {
+                                VStack() {
+                                    ForEach(myPosts) { myPost in
+                                        PostItem(name: myPost.name, netID: myPost.netID, description: myPost.description, image: myPost.image)
+                                    }
+                                }
+                                .frame(maxWidth: .infinity)
+                            }
+                                .padding()
+                        }
+                        
+                        Spacer()
+                    }
+                    //                .navigationTitle("Recover")
+                    
                 }
-//                .navigationTitle("Recover")
                 
             }
         }

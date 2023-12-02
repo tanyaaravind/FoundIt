@@ -20,7 +20,6 @@
 		CEC157D92B17C61800B23D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC157D82B17C61800B23D14 /* Assets.xcassets */; };
 		CEC157DC2B17C61800B23D14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC157DB2B17C61800B23D14 /* Preview Assets.xcassets */; };
 		CEFD31DA2B193C37003C7611 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD31D92B193C37003C7611 /* PostView.swift */; };
-		CEFD31DC2B194A80003C7611 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD31DB2B194A80003C7611 /* PostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +39,6 @@
 		CEC157D82B17C61800B23D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEC157DB2B17C61800B23D14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CEFD31D92B193C37003C7611 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		CEFD31DB2B194A80003C7611 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		D8768C883D22FCED919FFF39 /* Pods_FoundIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoundIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,7 +89,6 @@
 				CEC157D62B17C61700B23D14 /* ContentView.swift */,
 				CE5A368E2B18414D006CD0DF /* ForumView.swift */,
 				CEFD31D92B193C37003C7611 /* PostView.swift */,
-				CEFD31DB2B194A80003C7611 /* PostViewModel.swift */,
 				CE5A36902B185606006CD0DF /* NavBar.swift */,
 				CE5A36942B185FA4006CD0DF /* PostItem.swift */,
 				CE5A36922B185A41006CD0DF /* PostStruct.swift */,
@@ -234,7 +231,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFD31DC2B194A80003C7611 /* PostViewModel.swift in Sources */,
 				CEFD31DA2B193C37003C7611 /* PostView.swift in Sources */,
 				CE5A36952B185FA4006CD0DF /* PostItem.swift in Sources */,
 				CEC157D72B17C61700B23D14 /* ContentView.swift in Sources */,

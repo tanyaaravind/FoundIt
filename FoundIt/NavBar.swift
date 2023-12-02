@@ -17,6 +17,9 @@ struct NavBar: View {
             TabView(selection: $tab) {
                 // Home Tab
                 ForumView()
+                    .onAppear {
+                        tab = 1
+                    }
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")
@@ -25,7 +28,10 @@ struct NavBar: View {
                 
                 // Add Post Tab
                 // TODO: convert image to base64
-                PostView()
+                PostView(tabIndex: $tab)
+                    .onAppear {
+                        tab = 2
+                    }
                     .tabItem {
                         Image(systemName: "plus.circle.fill")
                         Text("Add Post")
@@ -34,6 +40,9 @@ struct NavBar: View {
                 
                 // Profile Tab
                 ProfileView()
+                    .onAppear {
+                        tab = 3
+                    }
                     .tabItem {
                         Image(systemName: "person.circle.fill")
                         Text("Profile")
