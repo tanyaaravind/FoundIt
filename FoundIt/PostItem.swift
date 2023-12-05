@@ -9,20 +9,27 @@ import SwiftUI
 
 
 
-struct PostItem: View {
+struct PostItem: View, Identifiable {
+    var id: Int
     var name: String
     var netID: String
     var description: String
-    var image: Image
+    var imageUrl: String
 
     var body: some View {
 
         HStack {
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 150, height: 200, alignment: .leading)
-                .clipped()
+            AsyncImage(url: URL(string: imageUrl)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 150, height: 200, alignment: .leading)
+                    .clipped()
+            } placeholder: {
+                ProgressView()
+                    .frame(width: 150, height: 200, alignment: .leading)
+                    .clipped()
+            }
 
             Spacer()
 
@@ -51,11 +58,11 @@ struct PostItem: View {
         .cornerRadius(15.0)
     }
 }
-
-#if DEBUG
-struct PostItem_Previews: PreviewProvider {
-    static var previews: some View {
-        PostItem(name: "Tanya", netID: "ta374", description: "I found a yellow hat at RPCC it was on one of the benches come claim it if its urs ", image: Image("yellowhat"))
-    }
-}
-#endif
+//
+//#if DEBUG
+//struct PostItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PostItem(name: "Tanya", netID: "ta374", description: "I found a yellow hat at RPCC it was on one of the benches come claim it if its urs ", image: Image("yellowhat"))
+//    }
+//}
+//#endif

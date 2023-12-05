@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State private var firstOpen: Bool = true
     @State private var searchBar: String = ""
     @EnvironmentObject var user: GoogleUserAuth
 
     private func handleAuthentication() {
+        if !firstOpen {
+            return
+        }
+        firstOpen.toggle()
         user.checkLogin()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if !user.isLoggedIn {
@@ -64,8 +69,13 @@ struct ProfileView: View {
                         VStack {
                             
                             HStack {
-                                AsyncImage(url: URL(string: user.imageUrl))
-                                    .cornerRadius(24)
+                                AsyncImage(url: URL(string: user.imageUrl)) { image in
+                                    image
+                                        .cornerRadius(24)
+                                } placeholder: {
+                                    ProgressView()
+                                        .cornerRadius(24)
+                                }
                                 Text("\(user.name) (\(user.netId))")
                             }
                             .padding(.top, 20)
@@ -92,8 +102,8 @@ struct ProfileView: View {
                         
                             ScrollView {
                                 VStack() {
-                                    ForEach(myPosts) { myPost in
-                                        PostItem(name: myPost.name, netID: myPost.netID, description: myPost.description, image: myPost.image)
+                                    ForEach(user.posts) { post in
+                                        post
                                     }
                                 }
                                 .frame(maxWidth: .infinity)
@@ -103,7 +113,6 @@ struct ProfileView: View {
                         
                         Spacer()
                     }
-                    //                .navigationTitle("Recover")
                     
                 }
                 

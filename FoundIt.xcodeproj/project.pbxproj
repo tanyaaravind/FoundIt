@@ -10,6 +10,7 @@
 		043680012B198D6800556702 /* GoogleUserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043680002B198D6800556702 /* GoogleUserAuth.swift */; };
 		043680062B198EBC00556702 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043680052B198EBC00556702 /* ProfileView.swift */; };
 		043680082B19952400556702 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043680072B19952400556702 /* CameraView.swift */; };
+		04E21EE92B1EEBBF0095B1FA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E21EE82B1EEBBF0095B1FA /* NetworkManager.swift */; };
 		1ABA50C5B90694516BCA9348 /* Pods_FoundIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8768C883D22FCED919FFF39 /* Pods_FoundIt.framework */; };
 		CE5A368F2B18414D006CD0DF /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A368E2B18414D006CD0DF /* ForumView.swift */; };
 		CE5A36912B185606006CD0DF /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A36902B185606006CD0DF /* NavBar.swift */; };
@@ -27,6 +28,7 @@
 		043680022B198DAE00556702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043680052B198EBC00556702 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		043680072B19952400556702 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		04E21EE82B1EEBBF0095B1FA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6CCB11396200AFB984EB4224 /* Pods-FoundIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundIt.release.xcconfig"; path = "Target Support Files/Pods-FoundIt/Pods-FoundIt.release.xcconfig"; sourceTree = "<group>"; };
 		9F1CC1941076EBB22105C7DA /* Pods-FoundIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundIt.debug.xcconfig"; path = "Target Support Files/Pods-FoundIt/Pods-FoundIt.debug.xcconfig"; sourceTree = "<group>"; };
 		CE5A368E2B18414D006CD0DF /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				CEC157D82B17C61800B23D14 /* Assets.xcassets */,
 				CEC157DA2B17C61800B23D14 /* Preview Content */,
 				043680072B19952400556702 /* CameraView.swift */,
+				04E21EE82B1EEBBF0095B1FA /* NetworkManager.swift */,
 			);
 			path = FoundIt;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				CE5A36952B185FA4006CD0DF /* PostItem.swift in Sources */,
 				CEC157D72B17C61700B23D14 /* ContentView.swift in Sources */,
 				CE5A36912B185606006CD0DF /* NavBar.swift in Sources */,
+				04E21EE92B1EEBBF0095B1FA /* NetworkManager.swift in Sources */,
 				043680012B198D6800556702 /* GoogleUserAuth.swift in Sources */,
 				CE5A368F2B18414D006CD0DF /* ForumView.swift in Sources */,
 				043680082B19952400556702 /* CameraView.swift in Sources */,

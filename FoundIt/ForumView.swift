@@ -9,14 +9,27 @@ import SwiftUI
 
 struct ForumView: View {
     @State private var searchBar: String = ""
+    @State private var currPosts: [Post]!
+    @State private var postObjs: [PostItem] = []
+    @EnvironmentObject var user: GoogleUserAuth
     
     enum ButtonType {
-           case Lost, Found
-       }
+        case Lost, Found
+    }
     
     @State private var selectedButton: ButtonType = .Lost
 
-
+    private func fetch(type: String) {
+        postObjs = []
+        NetworkManager.shared.fetchPosts(type: type) { posts in
+            for post in posts {
+                NetworkManager.shared.fetchUserById(id: post.user_id!) { newUser in
+                    postObjs.append(PostItem(id: post.id, name: newUser.name, netID: newUser.netid, description: post.description, imageUrl: post.image_url))
+                }
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -35,12 +48,17 @@ struct ForumView: View {
                     
                     Spacer()
                     
-                    Image(systemName: "bell")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
-                        .padding(.trailing, 15)
-                        .padding(.bottom, 10)
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "bell")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .padding(.trailing, 15)
+                            .padding(.bottom, 10)
+                    }
+                    .foregroundStyle(Color.black)
                 }
                 .padding(.top, 50)
                 .background(Color.lightBlue)
@@ -54,6 +72,7 @@ struct ForumView: View {
                         
                         Button {
                             self.selectedButton = .Lost
+                            fetch(type: "lost")
                         } label: {
                             Text("Lost Items")
                                 .font(.footnote)
@@ -68,6 +87,7 @@ struct ForumView: View {
                         
                         Button {
                             self.selectedButton = .Found
+                            fetch(type: "found")
                         } label: {
                             Text("Found Items")
                                 .font(.footnote)
@@ -82,36 +102,27 @@ struct ForumView: View {
                         
                     }
                     .padding()
-                    // Display data based on the selected button
-                    if selectedButton == .Lost {
-                        ScrollView {
-                            VStack() {
-                                
-                                ForEach(lostPosts) { lostPost in
-                                    PostItem(name: lostPost.name, netID: lostPost.netID, description: lostPost.description, image: lostPost.image)
-                                }
+                    
+                    ScrollView {
+                        VStack() {
+                            ForEach(postObjs) { post in
+                                post
                             }
-                            .frame(maxWidth: .infinity)
                         }
-                        
-                    } else if selectedButton == .Found {
-
-                        ScrollView {
-                            VStack() {
-                                
-                                ForEach(foundPosts) { foundPost in
-                                    PostItem(name: foundPost.name, netID: foundPost.netID, description: foundPost.description, image: foundPost.image)
-                                }
-                            }
-                            .frame(maxWidth: .infinity)
-                        }
-                        
+                        .frame(maxWidth: .infinity)
                     }
                     
                     Spacer()
                        
                 }
                 
+            }
+        }
+        .onAppear {
+            if selectedButton == .Found {
+                fetch(type: "found")
+            } else {
+                fetch(type: "lost")
             }
         }
     }

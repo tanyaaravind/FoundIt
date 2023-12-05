@@ -9,5 +9,6 @@ target 'FoundIt' do
 
   pod "GoogleSignIn"
   pod "GoogleSignInSwiftSupport"
+  pod "Alamofire"
 
 end

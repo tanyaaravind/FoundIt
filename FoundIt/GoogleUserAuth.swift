@@ -14,7 +14,19 @@ class GoogleUserAuth: ObservableObject {
     @Published var isLoggedIn: Bool = false
     @Published var name: String = "n/a"
     @Published var nonCornellLoggedIn: Bool = false
-    @Published var imageUrl: String = "n/a"
+    @Published var imageUrl: String = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
+    @Published var userId: Int = -1
+    @Published var posts: [PostItem] = []
+    
+    func updatePosts() {
+        NetworkManager.shared.addOrUpdateUser(netId: netId, name: name) { newUser in
+            self.userId = newUser.id
+            self.posts = []
+            for post in newUser.posts {
+                self.posts.append(PostItem(id: post.id, name: self.name, netID: self.netId, description: post.description, imageUrl: post.image_url))
+            }
+        }
+    }
     
     func updateFields() {
         if GIDSignIn.sharedInstance.currentUser != nil {
@@ -25,19 +37,22 @@ class GoogleUserAuth: ObservableObject {
                 name = profile.name
                 isLoggedIn = true
                 nonCornellLoggedIn = true
+                updatePosts()
             } else {
                 netId = "Invalid Email"
-                imageUrl = "n/a"
+                imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
                 name = "n/a"
                 isLoggedIn = false
                 nonCornellLoggedIn = true
+                userId = -1
             }
         } else {
             netId = "Invalid Email"
-            imageUrl = "n/a"
+            imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
             name = "n/a"
             isLoggedIn = false
             nonCornellLoggedIn = false
+            userId = -1
         }
     }
     

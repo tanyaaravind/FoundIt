@@ -27,7 +27,6 @@ struct NavBar: View {
                     .tag(1)
                 
                 // Add Post Tab
-                // TODO: convert image to base64
                 PostView(tabIndex: $tab)
                     .onAppear {
                         tab = 2

@@ -15,12 +15,11 @@ struct PostView: View {
     @State private var showingPhotoGallery: Bool = false
     @State private var image = UIImage(named: "emptyImage")
     @State private var showingCamera: Bool = false
+    @EnvironmentObject var user: GoogleUserAuth
     @Binding var tabIndex: Int
     
-    
-    // For backend
     func toBase64 (image: UIImage) -> String {
-        return image.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+        return "data:image/jpeg;base64,\(image.jpegData(compressionQuality: 1)?.base64EncodedString() ?? "")" 
     }
     
     var body: some View {
@@ -30,8 +29,6 @@ struct PostView: View {
                     image = UIImage(named: "emptyImage")
                     tabIndex = 1
                     newPost = ""
-                    
-                    print("Cancel")
                 } label: {
                     Text("Cancel")
                 }
@@ -49,7 +46,13 @@ struct PostView: View {
                 //Spacer()
                 
                 Button {
-                    print("Post")
+                    if image != UIImage(named: "emptyImage") {
+                        NetworkManager.shared.createPost(description: newPost, imageUrl: toBase64(image: image!), userId: user.userId) { _ in
+                            image = UIImage(named: "emptyImage")
+                            tabIndex = 1
+                            newPost = ""
+                        }
+                    }
                 } label: {
                     Text("Post")
                 }
